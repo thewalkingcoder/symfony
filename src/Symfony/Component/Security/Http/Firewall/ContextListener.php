@@ -204,10 +204,6 @@ class ContextListener extends AbstractListener
                 throw new \InvalidArgumentException(sprintf('User provider "%s" must implement "%s".', \get_class($provider), UserProviderInterface::class));
             }
 
-            if (!$provider->supportsClass($userClass)) {
-                continue;
-            }
-
             try {
                 $refreshedUser = $provider->refreshUser($user);
                 $newToken = clone $token;
